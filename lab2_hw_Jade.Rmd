@@ -1,0 +1,100 @@
+---
+title: "Lab 2 Homework"
+author: "Jade Shi"
+date: "Winter 2019"
+output:
+  html_document:
+    keep_md: yes
+    theme: spacelab
+---
+
+## Instructions
+Answer the following questions and complete the exercises in RMarkdown. Please embed all of your code and push your final work to our [GitHub repository](https://github.com/FRS417-DataScienceBiologists). I will randomly select a few examples of student work at the start of each session to use as examples so be sure that your code is working to the best of your ability.
+
+
+## Load the tidyverse
+```{r}
+library("tidyverse")
+```
+
+## Mammals Sleep
+For this assignment, we are going to use built-in data on mammal sleep patterns.  
+```{r}
+msleep
+```
+
+1. From which publication are these data taken from? Don't do an internet search; show the code that you would use to find out in R.
+
+```{r}
+?msleep
+```
+
+
+
+2. Provide some summary information about the data to get you started; feel free to use the functions that you find most helpful.
+
+```{r}
+summary(msleep)
+```
+
+
+3. Make a new data frame focused on body weight, but be sure to indicate the common name and genus of each mammal.  
+```{r}
+my_interest <-
+  msleep %>%
+  select (name, genus, bodywt)
+my_interest
+
+```
+
+
+4. We are interested in two groups; small and large mammals. Let's define small as less than or equal to 1kg body weight and large as greater than or equal to 200kg body weight. For our study, we are interested in body weight and sleep total Make two new dataframes (large and small) based on these parameters.  
+
+```{r}
+small <-
+  my_interest %>%
+  filter (bodywt <=1)
+small
+
+large <-
+  my_interest %>%
+  filter (bodywt >=200)
+large
+  
+```
+
+
+5. Let's try to figure out if large mammals sleep, on average, longer than small mammals. What is the average sleep duration for large mammals as we have defined them?
+```{r}
+large_sleeping_time <-
+  msleep %>%
+  filter(bodywt >=200) %>%
+  select (name, genus, sleep_total) 
+mean(large_sleeping_time$sleep_total)
+```
+
+6. What is the average sleep duration for small mammals as we have defined them?
+```{r}
+small_sleeping_time <-
+  msleep %>%
+  filter(bodywt <=1) %>%
+  select(name, genus, sleep_total)
+mean(small_sleeping_time$sleep_total)
+```
+
+
+
+7. Which animals sleep at least 18 hours per day? Be sure to show the name, genus, order, and sleep total.  
+
+```{r}
+sleeptime <-
+  msleep%>%
+  select(name, genus, order, sleep_total)
+sleep18 <-
+  sleeptime %>%
+  filter (sleep_total >=18)
+sleep18
+```
+
+
+## Push your final code to [GitHub](https://github.com/FRS417-DataScienceBiologists)
