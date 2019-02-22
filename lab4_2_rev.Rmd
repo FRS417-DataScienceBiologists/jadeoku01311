@@ -92,7 +92,7 @@ life_history_na %>%
 ```
 
 
-
+ 
 5. Mammals have a range of life histories, including lifespan. Produce a summary of lifespan in years by order. Be sure to include the minimum, maximum, mean, standard deviation, and total n.
 #recall na.rm = TRUE means ignore the appearance of one NA but calculate the rest data
 ```{r}
