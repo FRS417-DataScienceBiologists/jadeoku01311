@@ -358,7 +358,7 @@ life_history_na %>%
 life_history_na %>% 
   filter(order=="Proboscidea")
 ```
-
+ 
 ```
 ## # A tibble: 2 x 13
 ##   order family genus species   mass gestation newborn weaning wean_mass
