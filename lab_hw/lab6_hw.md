@@ -79,7 +79,7 @@ skimr::skim(gapminder)
 ##  n obs: 1704 
 ##  n variables: 6 
 ## 
-## -- Variable type:factor -------------------------------------------------
+## -- Variable type:factor -------------------------------
 ##   variable missing complete    n n_unique
 ##  continent       0     1704 1704        5
 ##    country       0     1704 1704      142
@@ -87,7 +87,7 @@ skimr::skim(gapminder)
 ##  Afr: 624, Asi: 396, Eur: 360, Ame: 300   FALSE
 ##      Afg: 12, Alb: 12, Alg: 12, Ang: 12   FALSE
 ## 
-## -- Variable type:integer ------------------------------------------------
+## -- Variable type:integer ------------------------------
 ##  variable missing complete    n    mean       sd    p0        p25     p50
 ##       pop       0     1704 1704 3e+07    1.1e+08 60011 2793664    7e+06  
 ##      year       0     1704 1704  1979.5 17.27     1952    1965.75  1979.5
@@ -95,7 +95,7 @@ skimr::skim(gapminder)
 ##  2e+07       1.3e+09 <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
 ##   1993.25 2007       <U+2587><U+2583><U+2587><U+2583><U+2583><U+2587><U+2583><U+2587>
 ## 
-## -- Variable type:numeric ------------------------------------------------
+## -- Variable type:numeric ------------------------------
 ##   variable missing complete    n    mean      sd     p0     p25     p50
 ##  gdpPercap       0     1704 1704 7215.33 9857.45 241.17 1202.06 3531.85
 ##    lifeExp       0     1704 1704   59.47   12.92  23.6    48.2    60.71
