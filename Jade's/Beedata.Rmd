@@ -1,0 +1,46 @@
+---
+title: "Untitled"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Load the Libraries
+```{r}
+library(tidyverse)
+library(skimr)
+library(readxl)
+```
+
+## Load the data
+```{r}
+bee1 <- 
+  readr::read_csv("bee1.csv")
+```
+
+```{r}
+bee2 <- 
+    readr::read_csv("bee2.csv")
+```
+
+```{r}
+## totalBeeData <- merge(bee1, bee2, by="State")
+##totalBeeData
+```
+
+## Bee loss vs state over the years  (jade) 
+#Colonies per state  (bar plot) - isha 
+#Beekeeper vs bee loss  (scatter plot) 
+#Bee loss over the years (valerie 
+#Bee loss over the years for each state
+
+
+#Questions:
+#There's a dataset in the folder called, "Bee colony Census Data by County"  and we wanted help in merging the data sets. 
+#Also in the "Bee colony Census Data by County" data set, there's a column named "value" and we've looked in the glossary but we couldn't find any info on it. We were wondering if you knew what we could use the "value" column for or if it's even worth using anything in the "Bee colony Census Data by County" data set.
+
+
