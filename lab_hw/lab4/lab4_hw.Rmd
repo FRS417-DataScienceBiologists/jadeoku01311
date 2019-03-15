@@ -1,0 +1,129 @@
+---
+title: "HW 4"
+author: "Jade Shi"
+date: "Winter 2019"
+output:
+  html_document:
+    keep_md: yes
+    theme: spacelab
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
+---
+## Load the tidyverse
+```{r}
+library("tidyverse")
+```
+
+## Practice and Homework
+We will work together on the next part (time permitting) and this will end up being your homework. Make sure that you save your work and copy and paste your responses into the RMarkdown homework file.
+
+Aren't mammals fun? Let's load up some more mammal data. This will be life history data for mammals. The [data](http://esapubs.org/archive/ecol/E084/093/) are from: *S. K. Morgan Ernest. 2003. Life history characteristics of placental non-volant mammals. Ecology 84:3402.*  
+```{r}
+getwd()
+```
+
+```{r}
+life_history <- readr::read_csv("C:/Users/JIN/Downloads/class_files-master (1)/class_files-master/mammal_lifehistories_v2.csv")
+```
+
+Rename some of the variables. Notice that I am replacing the old `life_history` data.
+```{r}
+life_history <- 
+  life_history %>% 
+  dplyr::rename(
+          genus        = Genus,
+          wean_mass    = `wean mass`,
+          max_life     = `max. life`,
+          litter_size  = `litter size`,
+          litters_yr   = `litters/year`
+          )
+```
+
+1. Explore the data using the method that you prefer. Below, I am using a new package called `skimr`. If you want to use this, make sure that it is installed.
+```{r}
+#install.packages("skimr")
+```
+
+```{r}
+library("skimr")
+```
+
+```{r}
+life_history %>% 
+  skimr::skim()
+```
+
+2. Run the code below. Are there any NA's in the data? Does this seem likely?
+#no there are no NAs in the data, it's not likely.
+```{r}
+msleep %>% 
+  summarize(number_nas= sum(is.na(life_history)))
+```
+
+3. Are there any missing data (NA's) represented by different values? How much and where? In which variables do we have the most missing data? Can you think of a reason why so much data are missing in this variable?
+```{r}
+life_history_na <- 
+  life_history %>% 
+  na_if("-999") #replace -999 data with NA
+life_history_na
+```
+
+```{r}
+life_history_na %>% 
+  skimr::skim()
+```
+
+```{r}
+life_history_na %>% 
+  purrr::map_df(~ sum(is.na(.))) %>% 
+  tidyr::gather(key="variables",value ="num_nas") %>% 
+  arrange(desc(num_nas))
+```
+
+
+
+4. Compared to the `msleep` data, we have better representation among taxa. Produce a summary that shows the number of observations by taxonomic order.
+```{r}
+life_history_na %>% 
+  group_by(order) %>% #this step groups the mammals by group
+  summarize(n())#show the length of the vector
+```
+
+
+ 
+5. Mammals have a range of life histories, including lifespan. Produce a summary of lifespan in years by order. Be sure to include the minimum, maximum, mean, standard deviation, and total n.
+#recall na.rm = TRUE means ignore the appearance of one NA but calculate the rest data
+```{r}
+life_history_na %>% 
+  mutate(lifespan = max_life / 12) %>% 
+  group_by(order) %>% 
+  summarize(min_lifespan= min(lifespan, na.rm = TRUE),
+            max_lifespan= max(lifespan, na.rm = TRUE),
+            mean_lifespan = mean(lifespan, na.rm = TRUE),
+            sd_lifespan = sd(lifespan, na.rm = TRUE),
+            total_lifespan = n())
+```
+
+
+6. Let's look closely at gestation and newborns. Summarize the mean gestation, newborn mass, and weaning mass by order. Add a new column that shows mean gestation in years and sort in descending order. Which group has the longest mean gestation? What is the common name for these mammals?
+```{r}
+life_history_na %>% 
+  group_by(order) %>% 
+  summarize(mean_gestation = mean(gestation,na.rm = TRUE),
+            mean_newbornmass = mean(newborn, na.rm = TRUE),
+            mean_weaningmass = mean(wean_mass, na.rm = TRUE)) %>% 
+  arrange(desc(mean_gestation))#Proboscidea has the longest gestation mean, the common name for these animal is Elephant
+```
+```{r}
+life_history_na %>% 
+  filter(order=="Proboscidea")
+```
+
+
+
+## Wrap-up
+Please review the learning goals and be sure to use the code here as a reference when completing the homework.
+
+See you next time!
