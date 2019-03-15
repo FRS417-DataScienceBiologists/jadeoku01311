@@ -25,7 +25,7 @@ getwd()
 ```
 
 ```{r}
-life_history <- readr::read_csv("C:/Users/JIN/Downloads/class_files-master (1)/class_files-master/mammal_lifehistories_v2.csv")
+life_history <- readr::read_csv("/Users/clmuser/Documents/GitHub/jadeoku91311/data/mammal_lifehistories_v2.csv")
 ```
 
 Rename some of the variables. Notice that I am replacing the old `life_history` data.

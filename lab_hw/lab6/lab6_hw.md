@@ -52,12 +52,12 @@ glimpse(gapminder)
 ```
 ## Observations: 1,704
 ## Variables: 6
-## $ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afghanistan, ...
-## $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia...
-## $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992...
-## $ lifeExp   <dbl> 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.8...
-## $ pop       <int> 8425333, 9240934, 10267083, 11537966, 13079460, 1488...
-## $ gdpPercap <dbl> 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 78...
+## $ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afghanistan, Af…
+## $ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …
+## $ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, …
+## $ lifeExp   <dbl> 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854…
+## $ pop       <int> 8425333, 9240934, 10267083, 11537966, 13079460, 148803…
+## $ gdpPercap <dbl> 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.…
 ```
 
 
@@ -79,7 +79,7 @@ skimr::skim(gapminder)
 ##  n obs: 1704 
 ##  n variables: 6 
 ## 
-## -- Variable type:factor -------------------------------
+## ── Variable type:factor ─────────────────────────────────────────────────────────────────────────
 ##   variable missing complete    n n_unique
 ##  continent       0     1704 1704        5
 ##    country       0     1704 1704      142
@@ -87,21 +87,21 @@ skimr::skim(gapminder)
 ##  Afr: 624, Asi: 396, Eur: 360, Ame: 300   FALSE
 ##      Afg: 12, Alb: 12, Alg: 12, Ang: 12   FALSE
 ## 
-## -- Variable type:integer ------------------------------
+## ── Variable type:integer ────────────────────────────────────────────────────────────────────────
 ##  variable missing complete    n    mean       sd    p0        p25     p50
 ##       pop       0     1704 1704 3e+07    1.1e+08 60011 2793664    7e+06  
 ##      year       0     1704 1704  1979.5 17.27     1952    1965.75  1979.5
 ##       p75       p100     hist
-##  2e+07       1.3e+09 <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
-##   1993.25 2007       <U+2587><U+2583><U+2587><U+2583><U+2583><U+2587><U+2583><U+2587>
+##  2e+07       1.3e+09 ▇▁▁▁▁▁▁▁
+##   1993.25 2007       ▇▃▇▃▃▇▃▇
 ## 
-## -- Variable type:numeric ------------------------------
+## ── Variable type:numeric ────────────────────────────────────────────────────────────────────────
 ##   variable missing complete    n    mean      sd     p0     p25     p50
 ##  gdpPercap       0     1704 1704 7215.33 9857.45 241.17 1202.06 3531.85
 ##    lifeExp       0     1704 1704   59.47   12.92  23.6    48.2    60.71
 ##      p75      p100     hist
-##  9325.46 113523.13 <U+2587><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581><U+2581>
-##    70.85     82.6  <U+2581><U+2582><U+2585><U+2585><U+2585><U+2585><U+2587><U+2583>
+##  9325.46 113523.13 ▇▁▁▁▁▁▁▁
+##    70.85     82.6  ▁▂▅▅▅▅▇▃
 ```
 
 2. We are interested in the relationship between per capita GDP and life expectancy; i.e. does having more money help you live longer on average. Make a quick plot below to visualize this relationship.

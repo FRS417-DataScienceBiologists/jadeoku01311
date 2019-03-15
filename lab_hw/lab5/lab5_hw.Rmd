@@ -31,7 +31,7 @@ Let's revisit the mammal life history data to practice our `ggplot` skills. Some
 1. Load the data.
 ```{r}
 life_history <-
-  readr::read_csv(file = "C:/Users/JIN/Downloads/class_files-master/data/mammal_lifehistories_v2.csv")
+  readr::read_csv(file = "/Users/clmuser/Documents/GitHub/jadeoku91311/data/mammal_lifehistories_v2.csv")
 ```
 
 

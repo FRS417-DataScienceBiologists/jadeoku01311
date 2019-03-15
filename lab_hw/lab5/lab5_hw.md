@@ -32,7 +32,7 @@ Let's revisit the mammal life history data to practice our `ggplot` skills. Some
 
 ```r
 life_history <-
-  readr::read_csv(file = "C:/Users/JIN/Downloads/class_files-master/data/mammal_lifehistories_v2.csv")
+  readr::read_csv(file = "/Users/clmuser/Documents/GitHub/jadeoku91311/data/mammal_lifehistories_v2.csv")
 ```
 
 ```
@@ -64,19 +64,19 @@ glimpse(life_history)
 ```
 ## Observations: 1,440
 ## Variables: 13
-## $ order          <chr> "Artiodactyla", "Artiodactyla", "Artiodactyla",...
-## $ family         <chr> "Antilocapridae", "Bovidae", "Bovidae", "Bovida...
-## $ Genus          <chr> "Antilocapra", "Addax", "Aepyceros", "Alcelaphu...
-## $ species        <chr> "americana", "nasomaculatus", "melampus", "buse...
-## $ mass           <dbl> 45375.0, 182375.0, 41480.0, 150000.0, 28500.0, ...
-## $ gestation      <dbl> 8.13, 9.39, 6.35, 7.90, 6.80, 5.08, 5.72, 5.50,...
-## $ newborn        <dbl> 3246.36, 5480.00, 5093.00, 10166.67, -999.00, 3...
-## $ weaning        <dbl> 3.00, 6.50, 5.63, 6.50, -999.00, 4.00, 4.04, 2....
-## $ `wean mass`    <dbl> 8900, -999, 15900, -999, -999, -999, -999, -999...
-## $ AFR            <dbl> 13.53, 27.27, 16.66, 23.02, -999.00, 14.89, 10....
-## $ `max. life`    <dbl> 142, 308, 213, 240, -999, 251, 228, 255, 300, 3...
-## $ `litter size`  <dbl> 1.85, 1.00, 1.00, 1.00, 1.00, 1.37, 1.00, 1.00,...
-## $ `litters/year` <dbl> 1.00, 0.99, 0.95, -999.00, -999.00, 2.00, -999....
+## $ order          <chr> "Artiodactyla", "Artiodactyla", "Artiodactyla", "…
+## $ family         <chr> "Antilocapridae", "Bovidae", "Bovidae", "Bovidae"…
+## $ Genus          <chr> "Antilocapra", "Addax", "Aepyceros", "Alcelaphus"…
+## $ species        <chr> "americana", "nasomaculatus", "melampus", "busela…
+## $ mass           <dbl> 45375.0, 182375.0, 41480.0, 150000.0, 28500.0, 55…
+## $ gestation      <dbl> 8.13, 9.39, 6.35, 7.90, 6.80, 5.08, 5.72, 5.50, 8…
+## $ newborn        <dbl> 3246.36, 5480.00, 5093.00, 10166.67, -999.00, 381…
+## $ weaning        <dbl> 3.00, 6.50, 5.63, 6.50, -999.00, 4.00, 4.04, 2.13…
+## $ `wean mass`    <dbl> 8900, -999, 15900, -999, -999, -999, -999, -999, …
+## $ AFR            <dbl> 13.53, 27.27, 16.66, 23.02, -999.00, 14.89, 10.23…
+## $ `max. life`    <dbl> 142, 308, 213, 240, -999, 251, 228, 255, 300, 324…
+## $ `litter size`  <dbl> 1.85, 1.00, 1.00, 1.00, 1.00, 1.37, 1.00, 1.00, 1…
+## $ `litters/year` <dbl> 1.00, 0.99, 0.95, -999.00, -999.00, 2.00, -999.00…
 ```
 
 ## -999 is not presented as NA, untidy
@@ -93,17 +93,17 @@ life_history_na
 ## # A tibble: 1,440 x 13
 ##    order family Genus species   mass gestation newborn weaning `wean mass`
 ##    <chr> <chr>  <chr> <chr>    <dbl>     <dbl>   <dbl>   <dbl>       <dbl>
-##  1 Arti~ Antil~ Anti~ americ~ 4.54e4      8.13   3246.    3           8900
-##  2 Arti~ Bovid~ Addax nasoma~ 1.82e5      9.39   5480     6.5           NA
-##  3 Arti~ Bovid~ Aepy~ melamp~ 4.15e4      6.35   5093     5.63       15900
-##  4 Arti~ Bovid~ Alce~ busela~ 1.50e5      7.9   10167.    6.5           NA
-##  5 Arti~ Bovid~ Ammo~ clarkei 2.85e4      6.8      NA    NA             NA
-##  6 Arti~ Bovid~ Ammo~ lervia  5.55e4      5.08   3810     4             NA
-##  7 Arti~ Bovid~ Anti~ marsup~ 3.00e4      5.72   3910     4.04          NA
-##  8 Arti~ Bovid~ Anti~ cervic~ 3.75e4      5.5    3846     2.13          NA
-##  9 Arti~ Bovid~ Bison bison   4.98e5      8.93  20000    10.7       157500
-## 10 Arti~ Bovid~ Bison bonasus 5.00e5      9.14  23000.    6.6           NA
-## # ... with 1,430 more rows, and 4 more variables: AFR <dbl>, `max.
+##  1 Arti… Antil… Anti… americ… 4.54e4      8.13   3246.    3           8900
+##  2 Arti… Bovid… Addax nasoma… 1.82e5      9.39   5480     6.5           NA
+##  3 Arti… Bovid… Aepy… melamp… 4.15e4      6.35   5093     5.63       15900
+##  4 Arti… Bovid… Alce… busela… 1.50e5      7.9   10167.    6.5           NA
+##  5 Arti… Bovid… Ammo… clarkei 2.85e4      6.8      NA    NA             NA
+##  6 Arti… Bovid… Ammo… lervia  5.55e4      5.08   3810     4             NA
+##  7 Arti… Bovid… Anti… marsup… 3.00e4      5.72   3910     4.04          NA
+##  8 Arti… Bovid… Anti… cervic… 3.75e4      5.5    3846     2.13          NA
+##  9 Arti… Bovid… Bison bison   4.98e5      8.93  20000    10.7       157500
+## 10 Arti… Bovid… Bison bonasus 5.00e5      9.14  23000.    6.6           NA
+## # … with 1,430 more rows, and 4 more variables: AFR <dbl>, `max.
 ## #   life` <dbl>, `litter size` <dbl>, `litters/year` <dbl>
 ```
 
@@ -156,18 +156,18 @@ life_history_na
 ## # A tibble: 1,440 x 13
 ##    order family genus species   mass gestation newborn weaning wean_mass
 ##    <chr> <chr>  <chr> <chr>    <dbl>     <dbl>   <dbl>   <dbl>     <dbl>
-##  1 Arti~ Antil~ Anti~ americ~ 4.54e4      8.13   3246.    3         8900
-##  2 Arti~ Bovid~ Addax nasoma~ 1.82e5      9.39   5480     6.5         NA
-##  3 Arti~ Bovid~ Aepy~ melamp~ 4.15e4      6.35   5093     5.63     15900
-##  4 Arti~ Bovid~ Alce~ busela~ 1.50e5      7.9   10167.    6.5         NA
-##  5 Arti~ Bovid~ Ammo~ clarkei 2.85e4      6.8      NA    NA           NA
-##  6 Arti~ Bovid~ Ammo~ lervia  5.55e4      5.08   3810     4           NA
-##  7 Arti~ Bovid~ Anti~ marsup~ 3.00e4      5.72   3910     4.04        NA
-##  8 Arti~ Bovid~ Anti~ cervic~ 3.75e4      5.5    3846     2.13        NA
-##  9 Arti~ Bovid~ Bison bison   4.98e5      8.93  20000    10.7     157500
-## 10 Arti~ Bovid~ Bison bonasus 5.00e5      9.14  23000.    6.6         NA
-## # ... with 1,430 more rows, and 4 more variables: AFR <dbl>,
-## #   max_life <dbl>, litter_size <dbl>, litters_yr <dbl>
+##  1 Arti… Antil… Anti… americ… 4.54e4      8.13   3246.    3         8900
+##  2 Arti… Bovid… Addax nasoma… 1.82e5      9.39   5480     6.5         NA
+##  3 Arti… Bovid… Aepy… melamp… 4.15e4      6.35   5093     5.63     15900
+##  4 Arti… Bovid… Alce… busela… 1.50e5      7.9   10167.    6.5         NA
+##  5 Arti… Bovid… Ammo… clarkei 2.85e4      6.8      NA    NA           NA
+##  6 Arti… Bovid… Ammo… lervia  5.55e4      5.08   3810     4           NA
+##  7 Arti… Bovid… Anti… marsup… 3.00e4      5.72   3910     4.04        NA
+##  8 Arti… Bovid… Anti… cervic… 3.75e4      5.5    3846     2.13        NA
+##  9 Arti… Bovid… Bison bison   4.98e5      8.93  20000    10.7     157500
+## 10 Arti… Bovid… Bison bonasus 5.00e5      9.14  23000.    6.6         NA
+## # … with 1,430 more rows, and 4 more variables: AFR <dbl>, max_life <dbl>,
+## #   litter_size <dbl>, litters_yr <dbl>
 ```
 
 
@@ -191,7 +191,7 @@ life_history_na %>%
 ## Warning: Removed 673 rows containing missing values (geom_point).
 ```
 
-![](lab5_hw_part2_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
+![](lab5_hw_files/figure-html/unnamed-chunk-9-1.png)<!-- -->
 
 
 7. You should notice that because of the outliers in newborn mass, we need to make some changes. We didn't talk about this in lab, but you can use `scale_x_log10()` as a layer to correct for this issue. This will log transform the y-axis values.
@@ -207,7 +207,7 @@ life_history_na %>%
 ## Warning: Removed 673 rows containing missing values (geom_point).
 ```
 
-![](lab5_hw_part2_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
+![](lab5_hw_files/figure-html/unnamed-chunk-10-1.png)<!-- -->
 
 
 8. Now that you have the basic plot, color the points by taxonomic order.
@@ -225,7 +225,7 @@ life_history_na %>%
 ## Warning: Removed 673 rows containing missing values (geom_point).
 ```
 
-![](lab5_hw_part2_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
+![](lab5_hw_files/figure-html/unnamed-chunk-11-1.png)<!-- -->
 
 
 9. Lastly, make the size of the points proportional to body mass.
@@ -241,7 +241,7 @@ life_history_na %>%
 ## Warning: Removed 691 rows containing missing values (geom_point).
 ```
 
-![](lab5_hw_part2_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
+![](lab5_hw_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
 
 
 10. Make a plot that shows the range of lifespan by order.
@@ -261,7 +261,7 @@ life_history_na %>%
 ## Warning: Removed 841 rows containing non-finite values (stat_boxplot).
 ```
 
-![](lab5_hw_part2_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
+![](lab5_hw_files/figure-html/unnamed-chunk-13-1.png)<!-- -->
 
 
 ## Push your final code to [GitHub](https://github.com/FRS417-DataScienceBiologists)
