@@ -4,8 +4,8 @@ date: "Winter 2019"
 author: "Jade Shi"
 output:
   html_document:
+    keep_md: yes
     theme: spacelab
-    toc: no
     toc_float: no
   pdf_document:
     toc: yes
@@ -16,13 +16,14 @@ This exam is designed to show me what you have learned and where there are probl
 
 At the end of the exam, upload the complete .Rmd file to your GitHub repository.  
 ```{r}
-install.packages("skimr")
+##install.packages("skimr")
 ```
 
 1. Load the tidyverse.
 ```{r}
-install.packages("tidyverse")
+##install.packages("tidyverse")
 ```
+
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(skimr)
@@ -32,7 +33,7 @@ library(skimr)
 2. For these questions, we will use data about California colleges. Load the `ca_college_data.csv` as a new object called `colleges`.
 ```{r}
 college<-
-  readr::read_csv(file = "data/ca_college_data.csv")
+  readr::read_csv(file = "/Users/clmuser/Documents/GitHub/jadeoku91311/data/ca_college_data.csv")
 ```
 
 
@@ -68,11 +69,7 @@ college %>%
 
 
 7. The column `COSTT4_A` is the annual cost of each institution. Which city has the highest cost?
-```{r}
-college %>% 
-  group_by(CITY) %>% 
-  
-```
+
 
 
 8. The column `ADM_RATE` is the admissions rate by college and `C150_4_POOLED` is the four-year completion rate. Use a scatterplot to show the relationship between these two variables. What does this mean?
@@ -95,9 +92,7 @@ univ_calir
 
 
 10. Use `separate()` to separate institution name into two new columns "UNIV" and "CAMPUS".
-```{r}
-seperate()
-```
+
 
 
 11. As a final step, remove `Hastings College of Law` and `UC San Francisco` and store the final data frame as a new object `univ_calif_final`.
